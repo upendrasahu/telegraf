@@ -40,3 +40,5 @@ plugin instead.
 
 [input data format]: /docs/DATA_FORMATS_INPUT.md
 [tail]: /plugins/inputs/tail
+
+foo

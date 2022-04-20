@@ -382,4 +382,5 @@ func init() {
 	inputs.Add("tail", func() telegraf.Input {
 		return NewTail()
 	})
+	
 }

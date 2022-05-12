@@ -671,7 +671,7 @@ func printFilteredGlobalSections(sectionFilters []string) {
 	}
 }
 
-func printConfig(name string, p telegraf.PluginDescriber, op string, commented bool, di telegraf.DeprecationInfo) {
+func printConfig(name string, op string, commented bool, di telegraf.DeprecationInfo) {
 	comment := ""
 	if commented {
 		comment = "# "

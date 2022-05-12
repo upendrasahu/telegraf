@@ -1,3 +1,4 @@
+//go:generate go run ../../../tools/extract_sample_config/main.go
 package aerospike
 
 import (
@@ -439,6 +440,11 @@ func createTags(hostPort string, nodeName string, namespace string, set string) 
 		nTags["set"] = set
 	}
 	return nTags
+}
+
+// Run `make generate` to create the constant value "sampleConfig"
+func (a *Aerospike) SampleConfig() string {
+	return sampleConfig
 }
 
 func init() {

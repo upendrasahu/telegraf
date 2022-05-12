@@ -11,4 +11,4 @@ process.yml
 /*.conf
 resource.syso
 versioninfo.json
-*_sample_config.go
+*sample_config.go

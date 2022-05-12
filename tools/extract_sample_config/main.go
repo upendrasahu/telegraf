@@ -11,8 +11,10 @@ import (
 	"fmt"
 	"log" //nolint:revive
 	"os"
+	"path"
+	"path/filepath"
+	"runtime"
 	"strings"
-	"text/template"
 
 	"github.com/yuin/goldmark"
 	gast "github.com/yuin/goldmark/ast"
@@ -60,29 +62,36 @@ func extractPluginData() (string, error) {
 // generatePluginData parses the main source file of the plugin as a template and updates it with the sample configuration
 // The original source file is saved so that these changes can be reverted
 func generatePluginData(packageName string, sampleConfig string) error {
-	sourceName := createSourceName(packageName)
-
-	plugin, err := os.ReadFile(sourceName)
-	if err != nil {
-		return err
+	// ioutil.WriteFile("test.txt", []byte("hello"), 0644)
+	_, b, _, ok := runtime.Caller(0)
+	if !ok {
+		return fmt.Errorf("unable to recover rood dir")
 	}
+	d := path.Join(path.Dir(b))
+	fmt.Println("wut", filepath.Join(filepath.Dir(d), "..", "config"))
+	// sourceName := createSourceName(packageName)
 
-	generatedTemplate := template.Must(template.New("").Parse(string(plugin)))
+	// plugin, err := os.ReadFile(sourceName)
+	// if err != nil {
+	// 	return err
+	// }
 
-	f, err := os.Create(sourceName)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
+	// generatedTemplate := template.Must(template.New("").Parse(string(plugin)))
 
-	err = generatedTemplate.Execute(f, struct {
-		SampleConfig string
-	}{
-		SampleConfig: sampleConfig,
-	})
-	if err != nil {
-		return err
-	}
+	// f, err := os.Create(sourceName)
+	// if err != nil {
+	// 	return err
+	// }
+	// defer f.Close()
+
+	// err = generatedTemplate.Execute(f, struct {
+	// 	SampleConfig string
+	// }{
+	// 	SampleConfig: sampleConfig,
+	// })
+	// if err != nil {
+	// 	return err
+	// }
 
 	return nil
 }

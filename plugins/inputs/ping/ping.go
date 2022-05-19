@@ -179,7 +179,7 @@ func (p *Ping) nativePing(destination string) (*pingStats, error) {
 }
 
 func (p *Ping) pingToURLNative(destination string, acc telegraf.Accumulator) {
-	tags := map[string]string{"url": destination}
+	tags := map[string]string{"server": destination}
 	fields := map[string]interface{}{}
 
 	stats, err := p.nativePingFunc(destination)

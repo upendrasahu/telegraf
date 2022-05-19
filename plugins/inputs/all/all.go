@@ -3,6 +3,7 @@ package all
 import (
 	//Blank imports for plugins to register themselves
 	_ "github.com/influxdata/telegraf/plugins/inputs/activemq"
+	_ "github.com/influxdata/telegraf/plugins/inputs/active_monitors"
 	_ "github.com/influxdata/telegraf/plugins/inputs/aerospike"
 	_ "github.com/influxdata/telegraf/plugins/inputs/aliyuncms"
 	_ "github.com/influxdata/telegraf/plugins/inputs/amd_rocm_smi"
@@ -196,6 +197,7 @@ import (
 	_ "github.com/influxdata/telegraf/plugins/inputs/tail"
 	_ "github.com/influxdata/telegraf/plugins/inputs/tcp_listener"
 	_ "github.com/influxdata/telegraf/plugins/inputs/teamspeak"
+        _ "github.com/influxdata/telegraf/plugins/inputs/telegrafFTD"
 	_ "github.com/influxdata/telegraf/plugins/inputs/temp"
 	_ "github.com/influxdata/telegraf/plugins/inputs/tengine"
 	_ "github.com/influxdata/telegraf/plugins/inputs/tomcat"
